@@ -1,0 +1,143 @@
+@import 'src/theme/variables.scss';
+
+.content-main {
+    color: $ta-black;
+
+    .content-header {
+        margin-bottom: 48px;
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 60px;
+            margin-bottom: 46px !important;
+        }
+
+        h3 {
+            font-size: 17px;
+            line-height: 21px;
+            margin-bottom: 4px !important;
+        }
+
+        h4 {
+            font-size: 32px;
+            line-height: 40px;
+            text-transform: uppercase;
+        }
+
+        h5 {
+            font-size: 22px;
+            line-height: 28px;
+            margin-bottom: 58px !important;
+
+            span {
+                color: $ta-blue-5;
+
+                &::-moz-selection {
+                    color: $ta-blue-5;
+                    background: rgb(48, 116, 211, 0.2);
+                }
+
+                &::selection {
+                    color: $ta-blue-5;
+                    background: rgb(48, 116, 211, 0.2);
+                }
+            }
+        }
+
+        h6 {
+            color: $ta-light-grey-2;
+            font-size: 17px;
+            line-height: 21px;
+        }
+    }
+
+    .content-form {
+        margin-bottom: 32px;
+
+        .group {
+            margin-bottom: 32px;
+            margin-right: 12px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .first-name-group,
+        .last-name-group,
+        .password-group {
+            width: 254px;
+        }
+
+        .address-group {
+            width: 384px;
+        }
+
+        .address-unit-group {
+            width: 124px;
+        }
+
+        .phone-group {
+            width: 180px;
+        }
+
+        .email-group {
+            width: 328px;
+        }
+
+        .btn-container {
+            margin-bottom: 32px;
+        }
+
+        p {
+            font-size: 14px;
+            color: $ta-light-grey-2;
+            line-height: 18px;
+
+            &::-moz-selection {
+                color: $ta-light-grey-2;
+                background: rgb(170, 170, 170, 0.2);
+            }
+
+            &::selection {
+                color: $ta-light-grey-2;
+                background: rgb(170, 170, 170, 0.2);
+            }
+
+            span {
+                cursor: pointer;
+                transition: color 0.2s ease-in-out;
+
+                &::-moz-selection {
+                    color: $ta-light-grey-2;
+                    background: rgb(170, 170, 170, 0.2);
+                }
+
+                &::selection {
+                    color: $ta-light-grey-2;
+                    background: rgb(170, 170, 170, 0.2);
+                }
+
+                &:hover {
+                    color: $ta-blue-5;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,276 @@
+@import 'src/theme/variables.scss';
+.select_company_main {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    height: fit-content;
+    margin: auto;
+    padding-top: 120px;
+    padding-top: 190px;
+    text-align: center;
+    background: $white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+    .user-name {
+        width: fit-content;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 auto 55px;
+        color: #707070;
+        color: $ta-black;
+        margin-bottom: 12px;
+        user-select: none;
+    }
+    .sub-text {
+        width: fit-content;
+        font-size: 17px;
+        font-weight: 700;
+        color: $ta-light-grey-2;
+        font-family: Montserrat;
+        margin-bottom: 42px;
+        user-select: none;
+    }
+    .user-img {
+        width: auto;
+        height: 74px;
+        margin-bottom: 22px;
+        user-select: none;
+    }
+    .carousel {
+        display: flex;
+        justify-content: center;
+        width: 1122px;
+    }
+    .slick-track {
+        display: flex;
+        margin-left: auto;
+        gap: 63px;
+        align-items: center;
+    }
+    .slick-slider .slick-track {
+        padding: 5px 0;
+    }
+    .slick-slide {
+        width: 190px !important;
+        height: 120px;
+        margin: 48px 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        cursor: pointer;
+        opacity: 0.2;
+        display: flex;
+        flex-direction: column;
+        transform: scale(1);
+        &:hover {
+            box-shadow: $box-shadow;
+            opacity: 1;
+            transition: $transition;
+        }
+        .slide-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    .slick-center {
+        box-shadow: $box-shadow;
+        margin: 5px 6px;
+        transition: all 0.1s ease;
+        opacity: 1;
+        transform: scale(1.65261, 1.7167);
+        &:hover {
+            background: transparent;
+        }
+    }
+    .slick-dots {
+        position: absolute;
+        bottom: -56px;
+        list-style: none;
+        display: flex;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 8px;
+        justify-content: center;
+        li {
+            width: 16px;
+            margin: 0 2px;
+            height: 8px;
+            button {
+                width: 16px;
+                height: 8px;
+                background: #dadada;
+                border-radius: 10px;
+                &::before {
+                    content: none;
+                }
+            }
+        }
+        .slick-active {
+            width: 32px;
+            transition: $transition;
+            button {
+                width: 100%;
+                height: 8px;
+                background: $muted;
+                &::before {
+                    content: none;
+                }
+            }
+        }
+    }
+    .slick-prev {
+        left: -22px;
+        top: 48%;
+        &::before {
+            content: url('/assets/svg/common/arrow-left-grey.svg');
+        }
+        &:hover {
+            &:before {
+                content: url('/assets/svg/common/arrow-filled.svg');
+                top: -1px;
+                left: 0px;
+                position: absolute;
+                rotate: 180deg;
+            }
+        }
+    }
+    .slick-prev.slick-disabled {
+        z-index: 9;
+        left: -22px;
+        top: 48%;
+        pointer-events: none;
+    }
+    .slick-next.slick-disabled {
+        right: -22px;
+        pointer-events: none;
+    }
+    .slick-next {
+        right: -22px;
+        top: 49%;
+        &::before {
+            content: url('/assets/svg/common/arrow-right-grey.svg');
+        }
+        &:hover {
+            &:before {
+                content: url('/assets/svg/common/arrow-filled.svg');
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+        }
+    }
+    .save-company {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .dots-active {
+        bottom: 28px;
+    }
+    .bottons {
+        position: relative;
+        top: 26px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .select_company_main_button {
+            background-color: $ta-blue-5;
+            height: 62px;
+            width: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: $white;
+            border-radius: 3px;
+            margin-bottom: 22px;
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            &:hover {
+                background-color: $ta-blue-9;
+                transition: $transition;
+            }
+        }
+        .logout {
+            width: 180px;
+            height: 42px;
+            color: $ta-black;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                transition: $transition;
+                background: $bw2;
+                color: $ta-red-3;
+            }
+        }
+    }
+    .company-name {
+        font-size: 21px;
+        font-weight: 700;
+        user-select: none;
+        transform: scale(0.6);
+        width: 250px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo {
+        width: 250px;
+        height: 80px;
+        user-select: none;
+        transform: scale(0.607, 0.59);
+    }
+    .last-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        user-select: none;
+        transform: scale(0.6);
+        bottom: 8px;
+        .text {
+            color: $ta-black;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .time {
+            color: $ta-black;
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+    .logo-bottom {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 40px;
+        svg {
+            width: fit-content;
+            padding: 0;
+            padding-left: 28px;
+        }
+    }
+}

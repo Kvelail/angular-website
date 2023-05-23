@@ -1,0 +1,64 @@
+@import 'src/theme/variables.scss';
+
+.button-container {
+    font-size: 14px;
+    line-height: 17px;
+    background: transparent;
+    color: $ta-black;
+    outline: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: $ta-blue-5;
+    }
+
+    &::-moz-selection {
+        color: $ta-black;
+        background: rgb(47, 47, 47, 0.2);
+    }
+
+    &::selection {
+        color: $ta-black;
+        background: rgb(47, 47, 47, 0.2);
+    }
+
+    &.disabled {
+        cursor: auto;
+        color: $bw5;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+}
+
+.sent-container {
+    .check-icon {
+        margin-right: 7px;
+
+        svg {
+            path {
+                fill: $ta-review-green-2;
+            }
+        }
+    }
+
+    p {
+        color: $ta-review-green-2;
+        font-size: 14px;
+        line-height: 18px;
+
+        &::-moz-selection {
+            color: $ta-review-green-2;
+            background: rgb(38, 166, 144, 0.2);
+        }
+
+        &::selection {
+            color: $ta-review-green-2;
+            background: rgb(38, 166, 144, 0.2);
+        }
+    }
+}

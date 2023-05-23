@@ -1,0 +1,218 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <h2 class="m-0 ta-font-bold">Register Company</h2>
+
+        <h3 class="m-0 ta-font-bold">Sign up for <span>FREE</span></h3>
+
+        <h4 class="m-0 ta-font-bold">
+            14 days
+            <span class="ta-font-regular">trial period</span>
+        </h4>
+
+        <h5 class="m-0 ta-font-bold">Please fill out form</h5>
+    </div>
+
+    <!-- FORM SECTION -->
+
+    <form
+        class="d-flex flex-column content-form"
+        [formGroup]="registerCompanyForm"
+        (keydown)="onKeyDown($event)"
+    >
+        <!-- FIRST NAME, LAST NAME -->
+
+        <div class="d-flex">
+            <div class="group first-name-group">
+                <app-ta-input
+                    formControlName="firstName"
+                    [inputConfig]="{
+                        name: 'First Name',
+                        type: 'text',
+                        label: 'First Name',
+                        isRequired: true,
+                        minLength: 2,
+                        maxLength: 26,
+                        textTransform: 'capitalize'
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group last-name-group">
+                <app-ta-input
+                    formControlName="lastName"
+                    [inputConfig]="{
+                        name: 'Last Name',
+                        type: 'text',
+                        label: 'Last Name',
+                        isRequired: true,
+                        minLength: 2,
+                        maxLength: 26,
+                        textTransform: 'capitalize'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- COMPANY NAME, EIN -->
+
+        <div class="d-flex">
+            <div class="group company-name-group">
+                <app-ta-input
+                    formControlName="companyName"
+                    [inputConfig]="{
+                        name: 'Company Name',
+                        type: 'text',
+                        label: 'Company Name',
+                        isRequired: true,
+                        textTransform: 'uppercase'
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group ein-group">
+                <app-ta-input
+                    formControlName="ein"
+                    [inputConfig]="{
+                        name: 'EIN',
+                        type: 'text',
+                        label: 'EIN',
+                        mask: '00-0000000',
+                        maxLength: 10,
+                        isRequired: true
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- ADDRESS -->
+
+        <div class="d-flex">
+            <div class="group address-group">
+                <app-input-address-dropdown
+                    #inputAddress
+                    formControlName="address"
+                    [inputConfig]="{
+                        name: 'Address',
+                        type: 'text',
+                        label: 'Address, City, State Zip',
+                        isRequired: true,
+                        placeholderIcon: 'address',
+                        textTransform: 'capitalize',
+                        dropdownWidthClass: 'w-col-383',
+                        minLength: 6,
+                        maxLength: 256
+                    }"
+                    [placeholderType]="'longAddress'"
+                    [activeAddress]="selectedAddress"
+                    (selectedAddress)="handleAddressChange($event)"
+                ></app-input-address-dropdown>
+            </div>
+
+            <div class="group address-unit-group">
+                <app-ta-input
+                    formControlName="addressUnit"
+                    [inputConfig]="{
+                        name: 'address-unit',
+                        type: 'text',
+                        label: 'Unit #',
+                        textTransform: 'uppercase',
+                        minLength: 1,
+                        maxLength: 10
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- PHONE, EMAIL -->
+
+        <div class="d-flex">
+            <div class="group phone-group">
+                <app-ta-input
+                    formControlName="phone"
+                    [inputConfig]="{
+                        name: 'Phone',
+                        type: 'text',
+                        label: 'Phone',
+                        isRequired: true,
+                        placeholderIcon: 'phone',
+                        mask: '(000) 000-0000',
+                        maxLength: 14
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group email-group">
+                <app-ta-input
+                    formControlName="email"
+                    [inputConfig]="{
+                        name: 'Email',
+                        type: 'text',
+                        label: 'Email',
+                        isRequired: true,
+                        placeholderIcon: 'email',
+                        autocomplete: 'off',
+                        minLength: 5,
+                        maxLength: 64,
+                        textTransform: 'lowercase'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- PASSWORD, CONFIRM PASSWORD -->
+
+        <div class="d-flex">
+            <div class="group password-group">
+                <app-ta-input
+                    formControlName="password"
+                    [inputConfig]="{
+                        name: 'Password',
+                        type: 'password',
+                        label: 'Password',
+                        placeholderIcon: 'password',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 8,
+                        maxLength: 64
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group password-group">
+                <app-ta-input
+                    formControlName="confirmPassword"
+                    [inputConfig]="{
+                        name: 'Confirm Password',
+                        type: 'password',
+                        label: 'Confirm Password',
+                        placeholderIcon: 'password',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 8,
+                        maxLength: 64
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- CONFIRM BUTTON -->
+
+        <div class="btn-container">
+            <app-sidebar-confirm-btn
+                [disabledValue]="registerCompanyForm.invalid"
+                [displaySpinner]="displaySpinner"
+                (clickValueEmitter)="onGetBtnClickValue($event)"
+            ></app-sidebar-confirm-btn>
+        </div>
+
+        <!-- TERMS OF SERVICE AND PRIVACY POLICY -->
+
+        <p class="m-0 text-center">
+            By continuing, you are agreeing to our<br />
+            <span class="ta-font-bold">Terms of Service</span>
+            and <span class="ta-font-bold">Privacy Policy</span>
+        </p>
+    </form>
+</div>

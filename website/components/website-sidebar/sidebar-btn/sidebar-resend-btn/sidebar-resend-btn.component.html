@@ -1,0 +1,29 @@
+<button
+    class="ta-font-bold button-container"
+    [ngClass]="{ disabled: sentAgoBtnDisabled }"
+    type="submit"
+    (click)="onGetClickValue()"
+>
+    {{ requestedResend ? 'EMAIL SENT' : btnText }}
+</button>
+
+<ng-container *ngIf="requestedResend">
+    <div class="d-flex align-items-center sent-container" [@fadeInAnimation]>
+        <svg-icon
+            class="check-icon"
+            src="assets/svg/applicant/check.svg"
+            [svgStyle]="{ 'width.px': 13, 'height.px': 10 }"
+        ></svg-icon>
+
+        <p class="m-0 ta-font-regular">
+            Sent
+            {{
+                sentAgoCounter === 1
+                    ? sentAgoCounter + ' minute ago'
+                    : sentAgoCounter > 1
+                    ? sentAgoCounter + ' minutes ago'
+                    : 'just now'
+            }}
+        </p>
+    </div>
+</ng-container>

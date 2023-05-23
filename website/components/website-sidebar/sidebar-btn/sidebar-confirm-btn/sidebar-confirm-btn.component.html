@@ -1,0 +1,19 @@
+<button
+    class="d-flex justify-content-center align-items-center ta-font-bold button-container"
+    type="submit"
+    [ngClass]="{
+        disabled: disabledValue,
+        'display-spinner': displaySpinner
+    }"
+    (click)="onGetClickValue()"
+>
+    {{ loginBtn ? 'Login' : displaySpinner ? 'Please wait' : 'Confirm' }}
+
+    <ng-container *ngIf="displaySpinner">
+        <div
+            class="d-flex justify-content-center align-items-center spinner-container"
+        >
+            <app-ta-spinner [size]="'small'" [color]="'white'"></app-ta-spinner>
+        </div>
+    </ng-container>
+</button>

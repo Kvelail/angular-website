@@ -1,0 +1,36 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <h2 class="m-0 ta-font-bold">Welcome</h2>
+
+        <ng-container *ngIf="!registerUserWelcome">
+            <h3 class="m-0 ta-font-bold">{{ userInfo.companyName }}</h3>
+
+            <h4 class="m-0 ta-font-regular">
+                {{ userInfo.firstName }} {{ userInfo.lastName }}
+            </h4>
+        </ng-container>
+
+        <ng-container *ngIf="registerUserWelcome">
+            <h4 class="m-0 ta-font-bold register-user">
+                {{ userInfo.firstName }} {{ userInfo.lastName }}
+            </h4>
+        </ng-container>
+
+        <h5 class="m-0 ta-font-bold">
+            Your email address <span>is verified</span>
+        </h5>
+
+        <span class="m-0 ta-font-regular">{{ userInfo.email }}</span>
+
+        <p class="m-0 ta-font-bold">Proceed to login</p>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+
+    <app-sidebar-confirm-btn
+        [loginBtn]="true"
+        (clickValueEmitter)="onGetBtnClickValue($event)"
+    ></app-sidebar-confirm-btn>
+</div>

@@ -1,0 +1,78 @@
+@import 'src/theme/variables.scss';
+
+.having-trouble-container {
+    .trouble-container {
+        margin-bottom: 42px;
+        cursor: pointer;
+        width: fit-content;
+
+        h3 {
+            font-size: 17px;
+            line-height: 21px;
+            color: $ta-light-grey-2;
+            margin-right: 10px !important;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+                color: $ta-black-2;
+            }
+
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.1);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.1);
+            }
+        }
+
+        .arrow-icon {
+            transition: transform 0.2s ease-in-out;
+
+            &.rotate-icon {
+                transform: rotate(180deg);
+            }
+
+            svg {
+                path {
+                    fill: $ta-light-grey-2;
+                }
+            }
+        }
+    }
+
+    .trouble-content {
+        display: none;
+        opacity: 0;
+        visibility: 0;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+
+        &.open-trouble {
+            display: flex;
+            opacity: 1;
+            visibility: 1;
+        }
+
+        .password-container {
+            margin-bottom: 42px;
+
+            p {
+                font-size: 14px;
+                margin-bottom: 12px !important;
+                line-height: 18px;
+
+                &::-moz-selection {
+                    color: $ta-black;
+                    background: rgb(47, 47, 47, 0.2);
+                }
+
+                &::selection {
+                    color: $ta-black;
+                    background: rgb(47, 47, 47, 0.2);
+                }
+            }
+        }
+    }
+}

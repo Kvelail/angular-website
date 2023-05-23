@@ -1,0 +1,50 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <h2 class="m-0 ta-font-bold">Resend Confirmation</h2>
+
+        <h5 class="m-0 ta-font-bold">Please enter email used to sign up</h5>
+    </div>
+
+    <!-- FORM SECTION -->
+
+    <form
+        class="d-flex flex-column content-form"
+        (keydown)="onKeyDown($event)"
+        [formGroup]="resendConfirmationForm"
+    >
+        <div class="d-flex">
+            <div class="email-group">
+                <app-ta-input
+                    formControlName="email"
+                    [inputConfig]="{
+                        name: 'Email',
+                        type: 'text',
+                        label: 'Email',
+                        isRequired: true,
+                        placeholderIcon: 'email',
+                        autocomplete: 'off',
+                        minLength: 5,
+                        maxLength: 64,
+                        textTransform: 'lowercase'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- CONFIRM BUTTON -->
+
+        <app-sidebar-confirm-btn
+            [disabledValue]="resendConfirmationForm.invalid"
+            [displaySpinner]="displaySpinner"
+            (clickValueEmitter)="onGetBtnClickValue($event)"
+        ></app-sidebar-confirm-btn>
+    </form>
+
+    <!-- HAVING TROUBLE TO LOGIN -->
+
+    <app-sidebar-dropdown
+        [displayResendConfirmationBtn]="false"
+    ></app-sidebar-dropdown>
+</div>

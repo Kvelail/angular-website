@@ -1,0 +1,189 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <h2 class="m-0 ta-font-bold">Create Account</h2>
+
+        <h3 class="m-0 ta-font-regular">You have been invited by</h3>
+
+        <h4 class="m-0 ta-font-bold">
+            {{ userInfo.companyName }}
+        </h4>
+
+        <h5 class="m-0 ta-font-regular">
+            <span class="ta-font-bold">{{ userInfo.department }} Team</span>
+            waits for you!
+        </h5>
+
+        <h6 class="m-0 ta-font-bold">Please fill out form</h6>
+    </div>
+
+    <!-- FORM SECTION -->
+
+    <form
+        class="d-flex flex-column content-form"
+        (keydown)="onKeyDown($event)"
+        [formGroup]="registerUserForm"
+    >
+        <!-- FIRST NAME, LAST NAME -->
+
+        <div class="d-flex">
+            <div class="group first-name-group">
+                <app-ta-input
+                    formControlName="firstName"
+                    [inputConfig]="{
+                        name: 'First Name',
+                        type: 'text',
+                        label: 'First Name',
+                        isRequired: true,
+                        minLength: 2,
+                        maxLength: 26,
+                        textTransform: 'capitalize'
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group last-name-group">
+                <app-ta-input
+                    formControlName="lastName"
+                    [inputConfig]="{
+                        name: 'Last Name',
+                        type: 'text',
+                        label: 'Last Name',
+                        isRequired: true,
+                        minLength: 2,
+                        maxLength: 26,
+                        textTransform: 'capitalize'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- ADDRESS -->
+
+        <div class="d-flex">
+            <div class="group address-group">
+                <app-input-address-dropdown
+                    #inputAddress
+                    formControlName="address"
+                    [inputConfig]="{
+                        name: 'Address',
+                        type: 'text',
+                        label: 'Address, City, State Zip',
+                        placeholderIcon: 'address',
+                        textTransform: 'capitalize',
+                        dropdownWidthClass: 'w-col-503',
+                        minLength: 6,
+                        maxLength: 256
+                    }"
+                    [placeholderType]="'longAddress'"
+                    [activeAddress]="selectedAddress"
+                    (selectedAddress)="handleAddressChange($event)"
+                ></app-input-address-dropdown>
+            </div>
+
+            <div class="group address-unit-group">
+                <app-ta-input
+                    formControlName="addressUnit"
+                    [inputConfig]="{
+                        name: 'address-unit',
+                        type: 'text',
+                        label: 'Unit #',
+                        textTransform: 'uppercase',
+                        minLength: 1,
+                        maxLength: 10
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- PHONE, EMAIL -->
+
+        <div class="d-flex">
+            <div class="group phone-group">
+                <app-ta-input
+                    formControlName="phone"
+                    [inputConfig]="{
+                        name: 'Phone',
+                        type: 'text',
+                        label: 'Phone',
+                        placeholderIcon: 'phone',
+                        mask: '(000) 000-0000',
+                        maxLength: 14
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group email-group">
+                <app-ta-input
+                    formControlName="email"
+                    [inputConfig]="{
+                        name: 'Email',
+                        type: 'text',
+                        label: 'Email',
+                        isRequired: true,
+                        placeholderIcon: 'email',
+                        autocomplete: 'off',
+                        isDisabled: true,
+                        minLength: 5,
+                        maxLength: 64,
+                        textTransform: 'lowercase'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- PASSWORD, CONFIRM PASSWORD -->
+
+        <div class="d-flex">
+            <div class="group password-group">
+                <app-ta-input
+                    formControlName="password"
+                    [inputConfig]="{
+                        name: 'Password',
+                        type: 'password',
+                        label: 'Password',
+                        placeholderIcon: 'password',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 8,
+                        maxLength: 64
+                    }"
+                ></app-ta-input>
+            </div>
+
+            <div class="group password-group">
+                <app-ta-input
+                    formControlName="confirmPassword"
+                    [inputConfig]="{
+                        name: 'Confirm Password',
+                        type: 'password',
+                        label: 'Confirm Password',
+                        placeholderIcon: 'password',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 8,
+                        maxLength: 64
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- CONFIRM BUTTON -->
+        <div class="btn-container">
+            <app-sidebar-confirm-btn
+                [disabledValue]="registerUserForm.invalid"
+                [displaySpinner]="displaySpinner"
+                (clickValueEmitter)="onGetBtnClickValue($event)"
+            ></app-sidebar-confirm-btn>
+        </div>
+
+        <!-- TERMS OF SERVICE AND PRIVACY POLICY -->
+
+        <p class="m-0 text-center">
+            By continuing, you are agreeing to our<br />
+            <span class="ta-font-bold">Terms of Service</span>
+            and <span class="ta-font-bold">Privacy Policy</span>
+        </p>
+    </form>
+</div>

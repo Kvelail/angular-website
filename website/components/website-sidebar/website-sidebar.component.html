@@ -1,0 +1,104 @@
+<div
+    class="offcanvas offcanvas-start sidebar-container"
+    [ngStyle]="{ width: selectedContentWidth + 'px' }"
+    tabindex="-1"
+    id="sidebar"
+    aria-labelledby="sidebarLabel"
+    data-bs-backdrop="false"
+    data-trap-focus="true"
+>
+    <div class="d-flex flex-column justify-content-center">
+        <button
+            type="button"
+            class="btn-close text-reset d-none"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            #hideSidebarBtn
+        ></button>
+
+        <div class="d-flex align-items-center sidebar-header">
+            <svg-icon
+                class="logo-icon"
+                src="assets/svg/website/logo.svg"
+                [svgStyle]="{ 'width.px': 32, 'height.px': 32 }"
+            ></svg-icon>
+
+            <svg-icon
+                src="assets/svg/website/logo-text.svg"
+                [svgStyle]="{ 'width.px': 160, 'height.px': 30 }"
+            ></svg-icon>
+        </div>
+
+        <div class="d-flex flex-column sidebar-main">
+            <app-register-company
+                *ngIf="selectedContentType === 'start trial'"
+                [@fadeInAnimation]
+            ></app-register-company>
+
+            <app-confirmation
+                *ngIf="selectedContentType === 'start trial confirmation'"
+                [@fadeInAnimation]
+                [registerCompanyConfirmation]="true"
+            ></app-confirmation>
+
+            <app-welcome
+                *ngIf="selectedContentType === 'start trial welcome'"
+                [@fadeInAnimation]
+            ></app-welcome>
+
+            <app-register-user
+                *ngIf="selectedContentType === 'register user'"
+                [@fadeInAnimation]
+            ></app-register-user>
+
+            <app-confirmation
+                *ngIf="selectedContentType === 'register user confirmation'"
+                [@fadeInAnimation]
+                [registerUserConfirmation]="true"
+            ></app-confirmation>
+
+            <app-welcome
+                *ngIf="selectedContentType === 'register user welcome'"
+                [@fadeInAnimation]
+                [registerUserWelcome]="true"
+            ></app-welcome>
+
+            <app-login
+                *ngIf="selectedContentType === 'login'"
+                [@fadeInAnimation]
+            ></app-login>
+
+            <app-reset-password
+                *ngIf="selectedContentType === 'reset password'"
+                [@fadeInAnimation]
+            ></app-reset-password>
+
+            <app-confirmation
+                *ngIf="selectedContentType === 'reset password requested'"
+                [@fadeInAnimation]
+                [passwordResetRequested]="true"
+            ></app-confirmation>
+
+            <app-create-new-password
+                *ngIf="selectedContentType === 'create new password'"
+                [@fadeInAnimation]
+            ></app-create-new-password>
+
+            <app-password-updated
+                *ngIf="selectedContentType === 'password updated'"
+                [@fadeInAnimation]
+            ></app-password-updated>
+
+            <app-resend-confirmation
+                *ngIf="selectedContentType === 'resend confirmation'"
+                [@fadeInAnimation]
+            ></app-resend-confirmation>
+
+            <app-confirmation
+                *ngIf="selectedContentType === 'resend confirmation requested'"
+                [@fadeInAnimation]
+                [resendConfirmationRequested]="true"
+            ></app-confirmation>
+        </div>
+    </div>
+</div>

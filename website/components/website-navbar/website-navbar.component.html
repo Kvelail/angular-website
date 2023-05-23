@@ -1,0 +1,80 @@
+<div
+    class="container navbar-container"
+    [ngStyle]="{
+        padding: isSidebarOpen
+            ? '42px 80px 0 ' + sidebarContentWidth + 'px'
+            : '42px 80px 0 80px'
+    }"
+>
+    <nav class="justify-content-between navbar navbar-expand-lg">
+        <ng-container *ngIf="isEmailRoute">
+            <ul class="navbar-nav">
+                <li class="d-flex align-items-center nav-item-left">
+                    <a
+                        class="d-flex align-items-center ta-font-semi-bold link"
+                        [routerLink]="[navbarMenuItems[2].route]"
+                    >
+                        {{ navbarMenuItems[2].title }}
+                    </a>
+                </li>
+            </ul>
+        </ng-container>
+
+        <ng-container *ngIf="!isEmailRoute">
+            <ul class="navbar-nav">
+                <ng-container
+                    *ngFor="
+                        let menuItem of navbarMenuItems | slice : 0 : 3;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <li class="d-flex align-items-center nav-item-left">
+                        <a
+                            class="d-flex align-items-center ta-font-semi-bold link"
+                            (click)="
+                                handleNavbarBtnClick('left', menuItem.route)
+                            "
+                        >
+                            {{ menuItem.title }}
+
+                            <ng-container *ngIf="menuItem.iconSrc">
+                                <svg-icon
+                                    class="nav-icon"
+                                    src="{{ menuItem.iconSrc }}"
+                                    [svgStyle]="{
+                                        'width.px': 10,
+                                        'height.px': 6
+                                    }"
+                                ></svg-icon>
+                            </ng-container>
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+
+            <ul class="navbar-nav">
+                <ng-container
+                    *ngFor="
+                        let menuItem of navbarMenuItems | slice : 3;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <li class="d-flex align-items-center nav-item-right">
+                        <a
+                            class="d-flex justify-content-center align-items-center ta-font-bold link button-link"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#sidebar"
+                            role="button"
+                            aria-controls="sidebarLabel"
+                            (click)="
+                                handleNavbarBtnClick('right', menuItem.title)
+                            "
+                        >
+                            {{ menuItem.title }}
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+        </ng-container>
+    </nav>
+</div>

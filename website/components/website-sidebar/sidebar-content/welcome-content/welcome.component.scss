@@ -1,0 +1,83 @@
+@import 'src/theme/variables.scss';
+
+.content-main {
+    color: $ta-black;
+
+    .content-header {
+        margin-bottom: 30px;
+
+        h2,
+        h3,
+        h4,
+        h5,
+        span,
+        p {
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 60px;
+            margin-bottom: 10px !important;
+        }
+
+        h3 {
+            font-size: 22px;
+            line-height: 28px;
+            text-transform: uppercase;
+            margin-bottom: 4px !important;
+        }
+
+        h4 {
+            font-size: 17px;
+            line-height: 21px;
+            margin-bottom: 58px !important;
+
+            &.register-user {
+                font-size: 22px;
+                line-height: 28px;
+            }
+        }
+
+        h5 {
+            font-size: 17px;
+            line-height: 21px;
+            margin-bottom: 4px !important;
+
+            span {
+                color: $ta-blue-5;
+
+                &::-moz-selection {
+                    color: $ta-blue-5;
+                    background: rgb(48, 116, 211, 0.2);
+                }
+
+                &::selection {
+                    color: $ta-blue-5;
+                    background: rgb(48, 116, 211, 0.2);
+                }
+            }
+        }
+
+        span {
+            color: $ta-light-grey-2;
+            font-size: 17px;
+            line-height: 21px;
+            margin-bottom: 58px !important;
+        }
+
+        p {
+            color: $ta-light-grey-2;
+            font-size: 17px;
+            line-height: 21px;
+        }
+    }
+}

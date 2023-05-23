@@ -1,0 +1,64 @@
+@import 'src/theme/variables.scss';
+
+.content-main {
+    color: $ta-black;
+
+    .content-header {
+        margin-bottom: 48px;
+
+        h2,
+        h5 {
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 60px;
+            margin-bottom: 58px !important ;
+        }
+
+        h5 {
+            color: $ta-light-grey-2;
+            font-size: 17px;
+            line-height: 21px;
+        }
+    }
+
+    .content-form {
+        margin-bottom: 72px;
+
+        .email-group,
+        .password-group {
+            width: 320px;
+            margin-bottom: 32px;
+        }
+
+        .stay-logged-container {
+            margin-bottom: 30px;
+
+            p {
+                margin-left: 5px !important;
+                font-size: 14px;
+                line-height: 18px;
+
+                &::-moz-selection {
+                    color: $ta-black;
+                    background: rgb(47, 47, 47, 0.1);
+                }
+
+                &::selection {
+                    color: $ta-black;
+                    background: rgb(47, 47, 47, 0.1);
+                }
+            }
+        }
+    }
+}

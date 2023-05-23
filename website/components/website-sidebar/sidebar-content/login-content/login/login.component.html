@@ -1,0 +1,83 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <h2 class="m-0 ta-font-bold">Login</h2>
+
+        <h5 class="m-0 ta-font-bold">Please enter email and password</h5>
+    </div>
+
+    <!-- FORM SECTION -->
+
+    <form
+        class="d-flex flex-column content-form"
+        [formGroup]="loginForm"
+        (keydown)="onKeyDown($event)"
+    >
+        <div class="d-flex">
+            <div class="email-group">
+                <app-ta-input
+                    formControlName="email"
+                    [inputConfig]="{
+                        name: 'Email',
+                        type: 'email',
+                        label: 'Email',
+                        placeholderIcon: 'email',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 5,
+                        maxLength: 64,
+                        textTransform: 'lowercase'
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="password-group">
+                <app-ta-input
+                    formControlName="password"
+                    [inputConfig]="{
+                        name: 'Password',
+                        type: 'password',
+                        label: 'Password',
+                        placeholderIcon: 'password',
+                        isRequired: true,
+                        autocomplete: 'off',
+                        minLength: 8,
+                        maxLength: 64
+                    }"
+                ></app-ta-input>
+            </div>
+        </div>
+
+        <!-- SIGNED IN CHECKBOX -->
+
+        <div class="d-flex align-items-center stay-logged-container">
+            <app-ta-checkbox formControlName="stayLoggedIn"></app-ta-checkbox>
+
+            <p
+                class="m-0"
+                [ngStyle]="{
+                    color: loginForm.get('stayLoggedIn').value
+                        ? '#424242'
+                        : '#919191'
+                }"
+            >
+                Stay loggedin
+            </p>
+        </div>
+
+        <!-- CONFIRM BUTTON -->
+
+        <app-sidebar-confirm-btn
+            [disabledValue]="loginForm.invalid"
+            [displaySpinner]="displaySpinner"
+            (clickValueEmitter)="onGetBtnClickValue($event)"
+        ></app-sidebar-confirm-btn>
+    </form>
+
+    <!-- HAVING TROUBLE TO LOGIN -->
+
+    <app-sidebar-dropdown></app-sidebar-dropdown>
+</div>

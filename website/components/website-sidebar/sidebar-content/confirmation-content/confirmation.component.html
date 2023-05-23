@@ -1,0 +1,53 @@
+<div class="d-flex flex-column content-main">
+    <!-- HEADER SECTION -->
+
+    <div class="d-flex flex-column content-header">
+        <ng-container
+            *ngIf="!resendConfirmationRequested && !passwordResetRequested"
+        >
+            <h2 class="ta-font-bold">Thanks for choosing us!</h2>
+        </ng-container>
+
+        <ng-container
+            *ngIf="resendConfirmationRequested || passwordResetRequested"
+        >
+            <h2 class="ta-font-bold confirmation-true">Requested</h2>
+
+            <h5 class="m-0 ta-font-bold">
+                {{
+                    resendConfirmationRequested
+                        ? 'RESEND CONFIRMATION'
+                        : 'PASSWORD RESET'
+                }}
+            </h5>
+        </ng-container>
+
+        <h3 class="m-0 ta-font-bold">Check your email</h3>
+
+        <span class="m-0 ta-font-bold">{{ confirmationEmail }}</span>
+
+        <h4 class="m-0 ta-font-bold">Already confirmed your email?</h4>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+
+    <app-sidebar-confirm-btn
+        [loginBtn]="true"
+        (clickValueEmitter)="onGetBtnClickValue($event, 'login-btn')"
+    ></app-sidebar-confirm-btn>
+
+    <!-- DIDN'T RECEIVE EMAIL -->
+
+    <div
+        class="d-flex flex-column justify-content-center receive-email-container"
+    >
+        <p class="m-0 ta-font-regular">Didn't receive email?</p>
+
+        <app-sidebar-resend-btn
+            [btnText]="'RESEND EMAIL'"
+            [requestedResend]="requestedResendEmail"
+            (clickValueEmitter)="onGetBtnClickValue($event, 'resend-btn')"
+            (resetRequestedResendEmitter)="onResetRequestedResend($event)"
+        ></app-sidebar-resend-btn>
+    </div>
+</div>

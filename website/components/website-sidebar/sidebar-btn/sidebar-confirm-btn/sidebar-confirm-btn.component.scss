@@ -1,0 +1,48 @@
+@import 'src/theme/variables.scss';
+
+.button-container {
+    width: 100%;
+    padding: 22px;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background: $ta-blue-5;
+    color: $white;
+    position: relative;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+        background: $ta-blue-9;
+    }
+
+    &.disabled {
+        background: $bw2;
+        color: $bw5;
+        cursor: auto;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+
+    &.display-spinner {
+        background: $ta-blue-9;
+        color: $ta-blue-8;
+        cursor: auto;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+
+    .spinner-container {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+    }
+}

@@ -1,0 +1,100 @@
+@import 'src/theme/variables.scss';
+
+.content-main {
+    color: $ta-black;
+
+    .content-header {
+        margin-bottom: 30px;
+
+        h2,
+        h5,
+        h3,
+        br {
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+
+        h2 {
+            font-size: 48px;
+            line-height: 60px;
+            margin-bottom: 42px !important;
+
+            &.confirmation-true {
+                margin-bottom: 9px !important;
+            }
+        }
+
+        h5 {
+            font-size: 22px;
+            line-height: 28px;
+            margin-bottom: 65px !important;
+        }
+
+        h3 {
+            font-size: 32px;
+            line-height: 40px;
+            margin-bottom: 4px !important;
+        }
+
+        span {
+            color: $ta-blue-5;
+            font-size: 17px;
+            line-height: 21px;
+            margin-bottom: 72px !important;
+
+            &::-moz-selection {
+                color: $ta-blue-5;
+                background: rgb(48, 116, 211, 0.2);
+            }
+
+            &::selection {
+                color: $ta-blue-5;
+                background: rgb(48, 116, 211, 0.2);
+            }
+        }
+
+        h4 {
+            color: $ta-light-grey-2;
+            font-size: 17px;
+            line-height: 21px;
+
+            &::-moz-selection {
+                color: $ta-light-grey-2;
+                background: rgb(170, 170, 170, 0.2);
+            }
+
+            &::selection {
+                color: $ta-light-grey-2;
+                background: rgb(170, 170, 170, 0.2);
+            }
+        }
+    }
+
+    .receive-email-container {
+        margin-top: 32px;
+
+        p {
+            color: $ta-black;
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 12px !important;
+
+            &::-moz-selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $ta-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+    }
+}
